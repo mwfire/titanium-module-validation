@@ -67,7 +67,7 @@ var validation = require('/lib/de.mwfire.validate');
 var emailField = Ti.UI.createTextField({
     hintText     : 'Email',
     name         : 'Email',
-    rules        : 'required|validEmail'
+    rules        : 'required|valid_email'
 });
 win.add(emailField);
 
