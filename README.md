@@ -61,7 +61,7 @@ If you are on Alloy, you can omit the lib folder:
 ```javascript
 // Assuming you have a window called win
 // Require the module
-var validation = require('/lib/de.mwfire.validate);
+var validation = require('/lib/de.mwfire.validate');
 
 // Email is required and has to be valid
 var emailField = Ti.UI.createTextField({
