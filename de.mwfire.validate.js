@@ -1,7 +1,8 @@
 /* 
  * This is more or less a port from Rick Harrisons validate.js to Titanium
  * @author Martin Wildfeuer
- * @version 0.1
+ * @author Torgny Bjers <torgny@xorcode.com>
+ * @version 0.2
  * 
  * Requires underscore.js!
  * 
@@ -26,7 +27,7 @@ var errors = [];
  * @type {Object}
  * @private
  */
-var _ = require('/lib/underscore')._;
+var _ = require((typeof ENV_TEST === 'boolean') ? 'alloy' : 'underscore')._;
 
 /**
  * Error messages
