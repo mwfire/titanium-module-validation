@@ -1,7 +1,8 @@
 /* 
  * This is more or less a port from Rick Harrisons validate.js to Titanium
  * @author Martin Wildfeuer
- * @version 0.1
+ * @author Torgny Bjers <torgny@xorcode.com>
+ * @version 0.2
  * 
  * Requires underscore.js!
  * 
@@ -26,7 +27,7 @@ var errors = [];
  * @type {Object}
  * @private
  */
-var _ = require('/lib/underscore')._;
+var _ = require((typeof ENV_TEST === 'boolean') ? 'alloy' : 'underscore')._;
 
 /**
  * Error messages
@@ -58,7 +59,8 @@ var messages = {
     valid_ip           : L('validationValidIp', 'The %s field must contain a valid IP.'),
     valid_base64       : L('validationValidBase64', 'The %s field must contain a base64 string.'),
     valid_credit_card  : L('validationValidCreditCard', 'The %s field must contain a valid credit card number.'),
-    valid_url          : L('validationValidUrl', 'The %s field must contain a valid URL.')
+    valid_url          : L('validationValidUrl', 'The %s field must contain a valid URL.'),
+    valid_zip_code     : L('validationValidZipCode', 'The %s field must be a valid Zip Code™.')
 };
 
 /**
@@ -79,7 +81,8 @@ var ruleRegex          = /^(.+?)\[(.+)\]$/,
     ipRegex            = /^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})$/i,
     base64Regex        = /[^a-zA-Z0-9\/\+=]/i,
     numericDashRegex   = /^[\d\-\s]+$/,
-    urlRegex           = /^((http|https):\/\/(\w+:{0,1}\w*@)?(\S+)|)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/;
+    urlRegex           = /^((http|https):\/\/(\w+:{0,1}\w*@)?(\S+)|)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/,
+    zipCodeRegex       = /^[0-9]{5}(-[0-9]{4})?$/;
 
 /**
  * Regex check functions
@@ -220,6 +223,10 @@ var hooks = {
         }
 
         return (nCheck % 10) === 0;
+    },
+
+    valid_zip_code: function(value){
+        return (zipCodeRegex.test(value));
     }
 };
 
