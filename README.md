@@ -4,7 +4,7 @@
 This module is designed to help you with validating input fields & switches. It is based on Rick Harrisons [validate.js](http://rickharrison.github.com/validate.js).
 
 ##Please note:
-I am not actively maintaining Titanium plugins at the moment. Titanium has evolved a lot since my initial versions and best practices have changed a lot, to the better, I have to say. So, although these plugins should do the job, feel free to send me pull requests! I would be more than happy to see this plugins as modules :)
+I am not actively maintaining Titanium plugins at the moment. Titanium has evolved a lot since my initial versions and best practices have changed a lot, to the better, I have to say. So, although these plugins should do the job, feel free to send me pull requests! I would be more than happy to see these plugins as modules :)
 
 ##Installation
 Just add `de.mwfire.validate.js` to your current projects `lib` folder. Create the folder as a child of Resources if it does not exist yet on classic Titanium projects. If you are using Alloy `lib` should be in the `app` directory.
